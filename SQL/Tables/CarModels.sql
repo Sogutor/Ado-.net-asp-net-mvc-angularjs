@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[CarModels]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] TEXT NULL,
+	[MarkId] int FOREIGN KEY REFERENCES CarModels(Id)
+)

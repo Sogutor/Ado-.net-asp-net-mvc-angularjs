@@ -1,0 +1,56 @@
+﻿<div ng-controller="CarsController" class="md-padding" id="popupContainer" ng-cloak>
+    <style>
+        .addautobutton {
+            position: fixed;
+        }
+
+        .tableMargin {
+            margin-top: 50px;
+        }
+    </style>
+    <md-button ng-show="!isViewLoading" class="md-primary md-raised addautobutton" ng-click="showModalDialog($event)">
+        Добавить авто
+    </md-button>
+
+    <table class="table table-bordered tableMargin">
+        <colgroup>
+            <col span="1" style="width: 50px;">
+            <col span="1">
+            <col span="1">
+            <col span="1">
+        </colgroup>
+        <thead>
+            <tr>
+                <th scope="col">Buttons</th>
+                <th scope="col">ФИО владельца</th>
+                <th scope="col">Телефон</th>
+                <th scope="col">Номер авто</th>
+                <th scope="col">Марка</th>
+                <th scope="col">Модель</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="car in cars">
+                <th>
+                    <img ng-click="showModalDialog($event,car)"
+                         src="~/Content/images/edit-24px.svg" alt="edit">
+                    <img ng-click="remove(car.Id)"
+                        src="~/Content/images/delete-24px.svg" alt="delete">
+                </th>
+                <td>{{car.CustomerName}}</td>
+                <td>{{car.MobilePhone}}</td>
+                <td>{{car.CarNumber}}</td>
+                <td>{{car.Mark}}</td>
+                <td>{{car.Model}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <span ng-show="isViewLoading" class="viewLoading">
+        <img src="~/Content/images/ng-loader.gif" /> loading...
+    </span>
+</div>
+
+@section JavaScript{
+    <script src="~/ControllersNg/CarsController.js"></script>
+}
+

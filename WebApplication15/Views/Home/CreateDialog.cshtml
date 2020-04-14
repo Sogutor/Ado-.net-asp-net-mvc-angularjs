@@ -1,0 +1,109 @@
+﻿<md-dialog layout-padding>
+    <div id="content">
+        <span ng-show="isViewLoading" class="viewLoading">
+            <img src="~/Content/images/ng-loader.gif" /> loading...
+        </span>
+        
+        <form ng-submit="(model.Id == null) ? submitCreate() : submitEdit()" name="frmNew">
+            <div style="visibility: hidden">
+                <input type="text"
+                       ng-model="model.Id" />
+            </div>
+            <div>
+                <label for="cname">Фио владельца</label>
+                <input type="text"
+                       ng-model="model.CustomerName"
+                       name="cname" placeholder="Введите ваше ФИО"
+                       required ng-minlength="4" ng-maxlength="24" />
+                <span class="error" ng-show="(frmNew.$dirty||submitted) && frmNew.cname.$error.required">Customer name is Required</span>
+                <span class="error" ng-show="frmNew.$dirty && frmNew.cname.$error.minlength">Minimum length required is 5</span>
+                <span class="error" ng-show="frmNew.$dirty && frmNew.cname.$error.maxlength">Minimum length required is 25</span>
+            </div>
+            <div>
+                <label for="phone">Мобильный телефон</label>
+                <input type="tel"
+                       ng-model="model.MobilePhone"
+                       name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                       placeholder="050-xxx-xxxx" required />
+                <span class="error" ng-show="(frmNew.$dirty ||submitted) && frmNew.phone.$error.required">Mobile Phone is Required!</span>
+                <span class="error" ng-show="(frmNew.$dirty ||submitted) && frmNew.$error.phone">Invalid MobilePhone</span>
+            </div>
+            <div>
+                <label for="carnumber">Номер автомобиля</label>
+                <input type="text"
+                       ng-model="model.CarNumber"
+                       name="carnumber" placeholder="AA 5153 KA" required ng-minlength="4" />
+                <span class="error" ng-show="(frmNew.$dirty ||submitted) && frmNew.carnumber.$error.required">Car Number is Required!</span>
+                <span class="error" ng-show="frmNew.$dirty && frmNew.carnumber.$error.minlength">Minimum length required is 5</span>
+            </div>
+            <div>
+                <label for="carmodel">Марка</label>
+                <select name="carmodel" 
+                        ng-change="model.SelectedModel = null"  
+                        ng-model="model.SelectedMark"
+                        required>
+                    <option ng-repeat="option in attributes"
+                            ng-value="option">
+                        {{option.MarkName}}
+                    </option>
+                </select>
+                <span class="error" ng-show="(frmNew.$dirty ||submitted) && frmNew.carmodel.$error.required">Required!</span>
+            </div>
+            <div>
+                <label for="mark">Модель</label>
+                <select name="mark" 
+                    ng-model="model.SelectedModel"
+                    required>
+                    <option ng-repeat="option in model.SelectedMark.Models"
+                            ng-value="option.Id">
+                        {{option.Name}}
+                    </option>
+                </select>
+                <span class="error" ng-show="(frmNew.$dirty ||submitted) && frmNew.mark.$error.required">Required!</span>
+            </div>
+            <div>
+                <input ng-show="!isViewLoading" class="md-primary md-raised" type="submit" value="Submit" ng-disabled="frmNew.$invalid">
+            </div>
+        </form>
+
+        <style>
+            #content label {
+                width: 150px;
+            }
+
+            #content input[type=submit] {
+                margin-left: 154px;
+                width: 120px;
+                margin-top: 10px;
+                padding: 5px 15px;
+                background: rgb(63,81,181);
+                border: 0 none;
+                cursor: pointer;
+                color: #fff;
+            }
+
+            .error {
+                color: red;
+            }
+
+            .color-default {
+                color: #000;
+            }
+
+            .color-red {
+                color: red;
+            }
+
+            .color-green {
+                color: green;
+            }
+
+            #content input.ng-dirty.ng-invalid {
+                border: 1px solid red;
+                background-color: rgb(255, 244, 244);
+            }
+        </style>
+    </div>
+</md-dialog>
+
+
