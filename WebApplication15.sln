@@ -9,19 +9,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{3EBD2E0D-B22
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tables", "Tables", "{326B247E-E513-43FE-8D5E-D42A1B81FA98}"
 	ProjectSection(SolutionItems) = preProject
-		CarMarks.sql = CarMarks.sql
-		CarModels.sql = CarModels.sql
-		Cars.sql = Cars.sql
+		SQL\Tables\CarMarks.sql = SQL\Tables\CarMarks.sql
+		SQL\Tables\CarModels.sql = SQL\Tables\CarModels.sql
+		SQL\Tables\Cars.sql = SQL\Tables\Cars.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StoredProcedures", "StoredProcedures", "{71CE560C-8AC7-4DCF-9CF3-75E28DA063C5}"
 	ProjectSection(SolutionItems) = preProject
-		DeleteCar.sql = DeleteCar.sql
-		GetAllCars.sql = GetAllCars.sql
-		GetAllCarTypes.sql = GetAllCarTypes.sql
-		GetCar.sql = GetCar.sql
-		InsertCar.sql = InsertCar.sql
-		UpdateCar.sql = UpdateCar.sql
+		SQL\StoredProcedures\DeleteCar.sql = SQL\StoredProcedures\DeleteCar.sql
+		SQL\StoredProcedures\GetAllCars.sql = SQL\StoredProcedures\GetAllCars.sql
+		SQL\StoredProcedures\GetAllCarTypes.sql = SQL\StoredProcedures\GetAllCarTypes.sql
+		SQL\StoredProcedures\GetCar.sql = SQL\StoredProcedures\GetCar.sql
+		SQL\StoredProcedures\InsertCar.sql = SQL\StoredProcedures\InsertCar.sql
+		SQL\StoredProcedures\UpdateCar.sql = SQL\StoredProcedures\UpdateCar.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{7BA2F857-12D3-42B3-A6FF-125D876986B5}"
